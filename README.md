@@ -31,6 +31,12 @@ python script.py
 
 ---
 
+Lint:
+
+```bash
+pylint script.py raspbian_mirrors/raspbian_mirrors/spiders/mirrors.py
+```
+
 Format:
 
 ```bash
