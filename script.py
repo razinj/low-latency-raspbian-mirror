@@ -9,7 +9,7 @@ average_times = []
 
 def display_result():
     sorted_data = sorted(average_times, key=lambda item: item["avg"])
-    print("[!] Top 5 averages: ")
+    print("\n[!] Top 5 averages: ")
     for item in sorted_data[:5]:
         print(f"[!] {item['avg']}ms - {item['domain']}")
 
@@ -29,10 +29,10 @@ def ping_domain(domain: str) -> t.Union[float, None]:
             avg_time = match.group().split("/")[4]
             return float(avg_time)
         else:
-            print(f"[X] Average time not found for {domain}")
+            print("[X] Average time not found for domain")
             return None
     except subprocess.CalledProcessError:
-        print(f"[X] Failed to ping {domain}")
+        print("[X] Failed to ping domain")
         return None
 
 
@@ -52,6 +52,7 @@ def ping_urls():
         avg_time = ping_domain(base_domain)
         if avg_time is not None:
             average_times.append({"domain": base_domain, "avg": avg_time})
+        print('---------------------------------------------------')
 
 
 def read_file():
